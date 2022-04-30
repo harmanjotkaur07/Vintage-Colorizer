@@ -9,7 +9,7 @@ import os
 top=tk.Tk()
 top.geometry('1000x600')
 top.title('Vintage Colorizer')
-top.iconbitmap(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\VintageColorizer\VintageColorizer\Lib\images\icons\vc_icon.ico")
+top.iconbitmap(r"vc_icon.ico")
 top.configure(background='white')
 
 def save_colorized(file_path,colorized_img):
@@ -42,7 +42,7 @@ def new_image(im,file_path):
     new=Toplevel()
     new.geometry('1000x600')
     new.title('New Project')
-    new.iconbitmap(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\VintageColorizer\VintageColorizer\Lib\images\icons\vc_icon.ico")
+    new.iconbitmap(r"vc_icon.ico")
     new.configure(background='white')
     label=Label(new,image=im)
     label.image=im
@@ -64,12 +64,12 @@ def upload_sample():
     sample_gallery=Toplevel()
     sample_gallery.geometry('900x470')
     sample_gallery.title('Sample Images')
-    sample_gallery.iconbitmap(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\VintageColorizer\VintageColorizer\Lib\images\icons\vc_icon.ico")
+    sample_gallery.iconbitmap(r"vc_icon.ico")
     sample_gallery.configure(background='#05232c')
     sample_text=Label(sample_gallery,text='Pick a sample to colorize')
     sample_text.configure(background='#05232c', foreground='white', font='arial 14 bold underline')
     sample_text.pack(side='top',pady=85)
-    samples=os.listdir(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\VintageColorizer\VintageColorizer\Lib\images\samples")
+    samples=os.listdir(r"samples")
     for sample in range(len(samples)):
         im=Image.open(f'.\\images\\samples\\{samples[sample]}')
         im.thumbnail(((sample_gallery.winfo_width()/6),(sample_gallery.winfo_height()/6)))
@@ -79,7 +79,7 @@ def upload_sample():
         label.pack(side='left', expand='yes')
         label.bind("<1>",lambda e,s=sample:upload_image(f'.\\images\\samples\\{samples[s]}',sample_gallery))
 
-vc_img=Image.open(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\VintageColorizer\VintageColorizer\Lib\images\others\Vintage Colorizer.png")
+vc_img=Image.open(r"Vintage Colorizer.png")
 vc_img.thumbnail((top.winfo_width(),top.winfo_height()))
 vc_img=ImageTk.PhotoImage(vc_img)
 vc_label=Label(top,image=vc_img)
