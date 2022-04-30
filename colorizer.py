@@ -2,8 +2,8 @@ import numpy as np
 import cv2
 
 def add_color(file_path):
-    net = cv2.dnn.readNetFromCaffe(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\VintageColorizer\VintageColorizer\Lib\model\colorization_deploy_v2.prototxt", r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\VintageColorizer\VintageColorizer\Lib\model\colorization_release_v2.caffemodel")
-    points = np.load(r"C:\Users\lenovo\OneDrive\Desktop\harman's folder\projects\VintageColorizer\VintageColorizer\Lib\model\pts_in_hull.npy")
+    net = cv2.dnn.readNetFromCaffe(r"colorization_deploy_v2.prototxt", r"colorization_release_v2.caffemodel")
+    points = np.load(r"pts_in_hull.npy")
 
     class8 = net.getLayerId("class8_ab")
     conv8 = net.getLayerId("conv8_313_rh")
